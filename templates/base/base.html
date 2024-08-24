@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Skillence</title>
+    <style>
+        .messages{
+            z-index:1001;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Skillence</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'python-interview' %}">Interview</a></li> 
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'quiz' %}">Quiz</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'admin_add_question' %}">Add Questions</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}">Login</a></li> 
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'signup' %}">Signup</a></li> 
+            </ul>
+        </div>
+    </nav>
+
+    <div >
+        {% comment %} {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %} {% endcomment %}
+      
+        <div class="messages position-relative" style="width: 100vw;">
+            {% for message in messages %}
+                {% if 'success' in message.tags %}
+                    <div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-10" role="alert" style="z-index: 1051;">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% elif 'error' in message.tags %}
+                    <div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0" role="alert" style="z-index: 1051;">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+    {% block content %}{% endblock %}
+   
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select all alerts with the class 'alert-dismissible'
+            var alerts = document.querySelectorAll('.alert-dismissible');
+    
+            // Loop through the alerts and set a timeout to close them
+            alerts.forEach(function(alert) {
+                setTimeout(function() {
+                    var bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }, 5000); // 5000ms = 5 seconds
+            });
+        });
+    </script>
+    
+</body>
+</html>

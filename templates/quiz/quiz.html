@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+<h2>Quiz</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+        <div class="mb-4">
+            <h5>{{ question.text }}</h5>
+            {% for option in question.option_set.all %}
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="question_{{ question.id }}" 
+                    value="{{ option.id }}"
+                    id="option_{{ option.id }}"
+                    {% if selected_answers|get_item:question.id == option.id %}
+                        checked
+                    {% endif %}
+                >
+                <label class="form-check-label" for="option_{{ option.id }}">{{ option.text }}</label>
+            </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <input type="hidden" name="current_page" value="{{ page_obj.number }}">
+    <div class="d-flex justify-content-between mt-4">
+        {% if page_obj.has_previous %}
+        <button type="submit" name="action" value="previous" class="btn btn-secondary">Previous</button>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <button type="submit" name="action" value="next" class="btn btn-secondary">Next</button>
+        {% else %}
+        <button type="submit" name="action" value="submit" class="btn btn-primary">Submit</button>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

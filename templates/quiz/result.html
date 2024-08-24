@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h2>Quiz Results</h2>
+<div class="mt-4">
+    <p><strong>Total Questions:</strong> {{ total_questions }}</p>
+    <p><strong>Correct Answers:</strong> {{ correct_answers }}</p>
+    <p><strong>Score:</strong> {{ score_percentage }}%</p>
+</div>
+
+<h3 class="mt-5">Detailed Feedback</h3>
+{% for result in results %}
+    <div class="card mb-3">
+        <div class="card-header">
+            {{ result.question.text }}
+        </div>
+        <div class="card-body">
+            <p>
+                <strong>Your Answer:</strong> {{ result.selected_option.text }} 
+                {% if result.is_correct %}
+                    <span class="badge bg-success">Correct</span>
+                {% else %}
+                    <span class="badge bg-danger">Incorrect</span>
+                {% endif %}
+            </p>
+            {% if not result.is_correct %}
+            <p><strong>Correct Answer:</strong> {{ result.correct_option.text }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

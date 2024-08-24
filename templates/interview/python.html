@@ -1,0 +1,448 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Skillence{% endblock title %}
+{% block content %}
+
+<style>
+    /* General container styling */
+
+    
+    .box{
+        display: grid;
+        grid-template-columns: auto 15%;
+    
+    }
+    .interview-container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* Title section styling */
+    .title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .title h5 {
+        flex: 1;
+        font-size: 1.2rem;
+        /* margin: 0 10px; */
+        color: #333;
+    }
+
+    /* Content section styling */
+    .content {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom:5px ;
+    }
+
+    .content h5 {
+        font-size: 1.2rem;
+        color: #007bff;
+    }
+
+    .content p {
+        margin: 0;
+    }
+
+    .content ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+
+    .content li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    /* Advertisement section styling */
+    .advrtisment {
+        margin-top: 70px;
+        background-color: #fff;
+        padding: 2px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .advrtisment img{
+        margin-top: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .title {
+            flex-direction: column;
+        }
+
+        .content, .advrt {
+            padding: 15px;
+        }
+
+        .content h5 {
+            font-size: 1.1rem;
+        }
+
+        .content li {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content {
+            padding: 10px;
+        }
+
+        .title h5 {
+            font-size: 1rem;
+        }
+
+        .content h5 {
+            font-size: 1rem;
+        }
+
+        .content li {
+            font-size: 0.85rem;
+        }
+    }
+</style>
+<div class="box">
+    
+<div class="interview-container">
+    <div class="title">
+        <h5><a href="#basic">Basic</a></h5>
+        <h5><a href="#intermediate">Intermediate</a></h5>
+        <h5><a href="#advanced">Advanced</a></h5>
+    </div>
+    <div class="content">
+       <h5><b>Question: Explain the difference between lists and tuples in Python.</b></h5> 
+       <p>
+            <ul>
+                <li>Lists are mutable, ordered collections of elements enclosed in square brackets []. They can be modified after creation.</li>
+                <li>Tuples are immutable, ordered collections of elements enclosed in parentheses (). They cannot be changed once created.</li>
+            </ul>
+        </p>
+    </div>
+    <div class="content">
+        <h5><b>Question: How do you reverse a list in Python?</b></h5>
+        <p>
+          <ul>
+            <li>You can reverse a list using the `list.reverse()` method, which modifies the list in place.</li>
+            <li>Alternatively, you can use slicing: `reversed_list = my_list[::-1]` to create a new reversed list.</li>
+            <li>You can also use the `reversed()` function, which returns an iterator: `reversed_list = list(reversed(my_list))`.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What does the `enumerate()` function do in Python?</b></h5>
+        <p>
+          <ul>
+            <li>`enumerate()` adds a counter to an iterable and returns it as an enumerate object, which can be used in loops to retrieve both the index and the value.</li>
+            <li>Example: `for index, value in enumerate(my_list):` allows you to iterate with both index and value.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How do you merge two dictionaries in Python (Python 3.9+)?</b></h5>
+        <p>
+          <ul>
+            <li>In Python 3.9 and later, you can merge two dictionaries using the `|` operator: `merged_dict = dict1 | dict2`.</li>
+            <li>This creates a new dictionary containing the merged contents of both dictionaries.</li>
+            <li>Alternatively, you can use `dict1.update(dict2)` to merge `dict2` into `dict1`, modifying `dict1` in place.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: Explain the difference between `break`, `continue`, and `pass` in Python.</b></h5>
+        <p>
+          <ul>
+            <li>`break` exits the nearest enclosing loop entirely.</li>
+            <li>`continue` skips the rest of the code inside the loop for the current iteration and moves to the next iteration.</li>
+            <li>`pass` does nothing and is used as a placeholder where a statement is syntactically required but no action is needed.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What is the purpose of the `assert` statement in Python?</b></h5>
+        <p>
+          <ul>
+            <li>The `assert` statement is used for debugging purposes, allowing you to test if a condition in your code returns `True`.</li>
+            <li>If the condition is `False`, `assert` raises an `AssertionError` with an optional message.</li>
+            <li>Example: `assert x > 0, "x must be positive"` ensures that `x` is positive.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How can you check if a file exists in Python?</b></h5>
+        <p>
+          <ul>
+            <li>You can check if a file exists using the `os.path.exists()` function from the `os` module.</li>
+            <li>Example: `import os`<br>`file_exists = os.path.exists('file.txt')`</li>
+            <li>Another method is to use `Path` objects from the `pathlib` module: `from pathlib import Path`<br>`file_exists = Path('file.txt').exists()`.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What is the purpose of the `zip()` function in Python?</b></h5>
+        <p>
+          <ul>
+            <li>The `zip()` function combines elements from multiple iterables (like lists or tuples) into tuples, where each tuple contains one element from each iterable.</li>
+            <li>Example: `zip([1, 2], ['a', 'b'])` results in `[(1, 'a'), (2, 'b')]`.</li>
+            <li>`zip()` stops when the shortest input iterable is exhausted.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How do you create a virtual environment in Python?</b></h5>
+        <p>
+          <ul>
+            <li>You can create a virtual environment using the `venv` module: `python -m venv myenv`.</li>
+            <li>To activate the virtual environment: <br>Windows: `myenv\Scripts\activate`<br>Unix/MacOS: `source myenv/bin/activate`.</li>
+            <li>To deactivate, simply run `deactivate` in the terminal.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How do you handle exceptions in Python?</b></h5>
+        <p>
+          <ul>
+            <li>Exceptions in Python are handled using `try`, `except`, `else`, and `finally` blocks.</li>
+            <li>`try` contains the code that might raise an exception.</li>
+            <li>`except` catches and handles the exception.</li>
+            <li>`else` is executed if the `try` block does not raise an exception.</li>
+            <li>`finally` runs whether an exception is raised or not, and is used for cleanup actions.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How do you remove duplicates from a list in Python?</b></h5>
+        <p>
+          <ul>
+            <li>One way to remove duplicates is to convert the list to a set and back to a list: `unique_list = list(set(my_list))`.</li>
+            <li>However, this method does not preserve the order. To remove duplicates while preserving order, you can use a loop or a dict: `unique_list = list(dict.fromkeys(my_list))`.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How can you generate random numbers in Python?</b></h5>
+        <p>
+          <ul>
+            <li>You can generate random numbers using the `random` module. For example, `random.randint(a, b)` generates a random integer between `a` and `b` (inclusive).</li>
+            <li>`random.random()` generates a random float between 0 and 1.</li>
+            <li>`random.choice(sequence)` returns a random element from a non-empty sequence like a list or tuple.</li>
+          </ul>
+        </p>
+      </div>
+    <div class="content">
+        <h5><b>Question: What is the difference between `deepcopy` and `copy` in Python?</b></h5>
+        <p>
+          <ul>
+            <li>`copy.copy()` creates a shallow copy of an object, meaning it only copies the object's reference to nested objects, not the objects themselves.</li>
+            <li>`copy.deepcopy()` creates a deep copy of an object, meaning it recursively copies all objects found, producing a fully independent clone.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How does Python's Global Interpreter Lock (GIL) affect multi-threading?</b></h5>
+        <p>
+          <ul>
+            <li>The GIL is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes at once.</li>
+            <li>This means that Python multi-threading does not achieve true parallelism in CPU-bound tasks but can be effective in I/O-bound tasks.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: Explain the concept of Python decorators.</b></h5>
+        <p>
+          <ul>
+            <li>Decorators are functions that modify the behavior of another function or method.</li>
+            <li>They are often used for logging, access control, memoization, and instrumentation.</li>
+            <li>A decorator takes a function as input, wraps it in another function that extends its behavior, and returns the wrapper function.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What are generators in Python, and how do they differ from normal functions?</b></h5>
+        <p>
+          <ul>
+            <li>Generators are functions that return an iterator and allow for lazy evaluation.</li>
+            <li>They are defined with the `yield` keyword, which pauses the function's execution and allows it to be resumed, returning a value to the caller.</li>
+            <li>Unlike normal functions that return a single value, generators return an iterable sequence of values, one at a time, upon each call to `next()`.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What are metaclasses in Python, and why would you use them?</b></h5>
+        <p>
+          <ul>
+            <li>Metaclasses are classes of classes that define how a class behaves.</li>
+            <li>They are used to modify or extend the behavior of classes during their creation.</li>
+            <li>Common use cases include implementing singleton patterns, logging, or enforcing design constraints.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How do you prevent a Python class from being instantiated?</b></h5>
+        <p>
+          <ul>
+            <li>To prevent a Python class from being instantiated, you can raise a `NotImplementedError` in the `__init__` method.</li>
+            <li>This approach is often used in abstract base classes where instantiation is not desired but inheritance is intended.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: Explain the difference between `staticmethod` and `classmethod` in Python.</b></h5>
+        <p>
+          <ul>
+            <li>`staticmethod` does not receive an implicit first argument, allowing it to behave like a normal function, except it belongs to the class's namespace.</li>
+            <li>`classmethod` receives the class as the first argument (usually named `cls`), allowing it to modify class state that applies across all instances.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What is the purpose of the `__new__` method in Python?</b></h5>
+        <p>
+          <ul>
+            <li>`__new__` is a static method responsible for creating and returning a new instance of a class.</li>
+            <li>It is called before `__init__` and is typically used when subclassing immutable types like `int`, `str`, or `tuple`.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: How does Python's memory management work?</b></h5>
+        <p>
+          <ul>
+            <li>Python uses a private heap to manage memory, where all objects and data structures are stored.</li>
+            <li>Memory management is handled automatically by Python's garbage collector, which uses reference counting and a cyclic garbage collector to free memory.</li>
+            <li>The `gc` module can be used to interact with the garbage collector.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="content">
+        <h5><b>Question: What are Python's `@property` and `@setter` decorators, and how are they used?</b></h5>
+        <p>
+          <ul>
+            <li>The `@property` decorator allows you to define a method that acts as a read-only attribute, providing an interface to instance attributes.</li>
+            <li>The `@setter` decorator is used to define a method that sets the value of a property, allowing for validation or processing when an attribute is modified.</li>
+            <li>They enable encapsulation and control over how attributes are accessed or modified.</li>
+          </ul>
+        </p>
+      </div>
+
+
+      <!-- ---------------------------------------------------------- -->
+      <div id="advanced">
+          
+          <h2>Pytoon Advanced Questions</h2>
+          <div class="content">
+            <h5><b>Question: What is the difference between `==` and `is` in Python?</b></h5>
+            <p>
+              <ul>
+                <li>`==` checks if the values of two objects are equal, meaning it compares their data.</li>
+                <li>`is` checks if two references point to the same object in memory, meaning it compares their identities.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: How does the `super()` function work in Python?</b></h5>
+            <p>
+              <ul>
+                <li>`super()` is used to call a method from a parent class, typically inside a method that overrides a parent method.</li>
+                <li>It is commonly used in multiple inheritance to ensure that the correct method resolution order (MRO) is followed.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: What are `__slots__` in Python, and how do they affect performance?</b></h5>
+            <p>
+              <ul>
+                <li>`__slots__` is a mechanism that restricts the creation of instance attributes to a predefined list, preventing the creation of `__dict__` and reducing memory overhead.</li>
+                <li>Using `__slots__` can significantly improve memory efficiency, especially in scenarios with a large number of instances.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: Explain the difference between `@staticmethod`, `@classmethod`, and an instance method.</b></h5>
+            <p>
+              <ul>
+                <li>Instance methods take `self` as the first argument and can access and modify the instance's state.</li>
+                <li>`@classmethod` methods take `cls` as the first argument, can access and modify class state, and are bound to the class, not the instance.</li>
+                <li>`@staticmethod` methods do not take `self` or `cls` and cannot modify either instance or class state; they are simple utility functions.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: What are Python's `weakref` objects, and when would you use them?</b></h5>
+            <p>
+              <ul>
+                <li>`weakref` objects are references to objects that do not increase the reference count, allowing the object to be garbage-collected.</li>
+                <li>They are useful for caching or referencing objects without preventing their deletion, reducing memory leaks.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: How can you implement a singleton pattern in Python?</b></h5>
+            <p>
+              <ul>
+                <li>A singleton pattern ensures that a class has only one instance and provides a global point of access to it.</li>
+                <li>This can be implemented using the `__new__` method, metaclasses, or a decorator that controls instance creation.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: What is the purpose of the `with` statement, and how does it work?</b></h5>
+            <p>
+              <ul>
+                <li>The `with` statement is used for simplifying exception handling and resource management by ensuring that resources are cleaned up after use.</li>
+                <li>It works with context managers, which implement the `__enter__` and `__exit__` methods to set up and tear down resources.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: How do you achieve method overloading in Python?</b></h5>
+            <p>
+              <ul>
+                <li>Python does not natively support method overloading, but it can be mimicked using default arguments, variable-length arguments (`*args`, `**kwargs`), or conditional logic within a method.</li>
+                <li>You can also use function decorators to manage different types of input.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: What are Python's `dataclasses`, and how do they simplify class creation?</b></h5>
+            <p>
+              <ul>
+                <li>`dataclasses` are a module in Python that provide a decorator and functions for automatically generating special methods like `__init__`, `__repr__`, and `__eq__` for user-defined classes.</li>
+                <li>They simplify the creation of classes by reducing boilerplate code, especially for classes that primarily store data.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="content">
+            <h5><b>Question: How does Python's `multiprocessing` module differ from `threading`?</b></h5>
+            <p>
+              <ul>
+                <li>`multiprocessing` creates separate memory space and process for each task, achieving true parallelism and avoiding the GIL's limitations.</li>
+                <li>`threading` runs tasks in the same memory space, limited by the GIL, and is better suited for I/O-bound tasks.</li>
+              </ul>
+            </p>
+          </div>
+      </div>
+   
+</div>
+<div class="advrtisment">
+    <img src="{% static 'images/ad2.png' %}" alt="">
+    <img src="{% static 'images/adv3.jfif' %}" alt="">
+    <img src="{% static 'images/adv4.jfif' %}" alt="">
+    <img src="{% static 'images/adv2.jfif' %}" alt="">
+    <img src="{% static 'images/adv5.jfif' %}" alt="">
+    <img src="{% static 'images/adv6.jfif' %}" alt="">
+    <img src="{% static 'images/ad2.png' %}" alt="">
+</div>
+</div>
+{% endblock %}
