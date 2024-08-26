@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-e40957=e)rk@c8z=ano!a_$%5_y3u432ql)3vejl$jbs(1j&co
 DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['.vercel.app','.now.sh']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','*']
 
 
 # Application definition
@@ -90,12 +90,12 @@ WSGI_APPLICATION = 'skillence.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 AUTH_USER_MODEL = 'App_Models.CustomBaseUser' 
 
 
