@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-e40957=e)rk@c8z=ano!a_$%5_y3u432ql)3vejl$jbs(1j&co
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
@@ -161,8 +162,13 @@ SIMPLE_JWT = {
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles_build','static')
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,35 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "skillence/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime":"python3.12"
+        }
+      },
+      {
+        "src": "build_file.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "disDir": "staticfiles_build"
+        }
+      }
+    ],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+          },
+      {
+        "src": "/(.*)",
+        "dest": "skillence/wsgi.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "skillence.settings",
+      "PYTHONUNBUFFERED": "1"
+    }
+  }
+  
