@@ -46,7 +46,7 @@ THIRD_PARTY_APPS=[
     'rest_framework',
     "graphene_django",
     'rest_framework_simplejwt',
-    'instamojo_wrapper',
+    # 'instamojo_wrapper',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -159,22 +159,13 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
 }
 
-
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# STATIC_DIRS = os.path.join(BASE_DIR, 'static'),
-# STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles_build','static') #newton school
-
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
