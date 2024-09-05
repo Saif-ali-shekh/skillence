@@ -46,6 +46,7 @@ THIRD_PARTY_APPS=[
     'rest_framework',
     "graphene_django",
     'rest_framework_simplejwt',
+    'instamojo_wrapper',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -90,12 +91,12 @@ WSGI_APPLICATION = 'skillence.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 AUTH_USER_MODEL = 'App_Models.CustomBaseUser' 
 
 
@@ -177,3 +178,20 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# settings.py
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'saifalishekh9801@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'dfev yhmc hkka rpfx'  # Your email password
+
+# Default from email address
+DEFAULT_FROM_EMAIL = 'Skillence'
+
+API_KEY ="c00d9cafccfe207e18777bf59b1daf1b"
+AUTH_TOKEN ="7471b86379face47a95df5c7e2d4f344"
+SALT ="71a024945a2649208add81c1476de546"
